@@ -18,7 +18,7 @@
 			justify-content: center;
 			align-self: flex-start;
 			height: 600px;
-			width: 33%;
+			width: 31%;
 			margin-top: 20px;
 			padding-bottom: 10px;
 			min-height: 400px;
@@ -53,4 +53,28 @@
 		{
 			background-color: black;
 		}
+.tint {
+  position: relative;
+  float: left;
+  cursor: pointer;
+}
+
+.tint:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(212,175,55, 0.5);
+  -moz-transition: background .3s linear;
+  -webkit-transition: background .3s linear;
+  -o-transition: background .3s linear;
+  transition: background .3s linear;
+}
+
+.tint:hover:before {
+  background: none;
+}
 	</style>
