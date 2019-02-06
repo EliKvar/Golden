@@ -1,0 +1,50 @@
+	<style>
+		.flex-container 
+		{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			height: 400px;
+			align-items: center;
+			border-style: solid;
+			background-color: 100000;
+		}
+		.bio
+		{
+			border-style: 1px solid red;
+			display:inline-block;
+			text-align: center;
+			justify-content: center;
+			width: 33%;
+			margin-top: 20px;
+			padding-bottom: 10px;
+			min-height: 400px;
+			background-color: 100000;
+			color: #eeeeee;
+			font-size: 12px;
+		}
+		.bioText
+		{
+			border-bottom: 1px solid red;
+			text-align: center;
+			justify-content: center;
+			background-color: #000000;
+			color: #eeeeee;
+			font-size: 12px;
+			min-height: 100px;
+		}
+		.bioName
+		{
+			color: #eeeeee;
+			min-height: 30px;
+			font-size: 14px;
+			background-color: #000000;
+			border-bottom: 1px solid red;
+			text-align: center;
+			justify-content: center;
+		}
+		body 
+		{
+			background-color: black;
+		}
+	</style>
