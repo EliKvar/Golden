@@ -1,32 +1,37 @@
 	<style>
-		.flex-container 
+		.flerx 
 		{
 			display: flex;
 			flex-direction: row;
-			justify-content: center;
-			height: 400px;
+			justify-content: top;
+			height: 600px;
 			align-items: center;
-			border-style: solid;
-			background-color: 100000;
+			border-style: 1px solid red;
+			background-color: #100000;
 		}
 		.bio
 		{
-			border-style: 1px solid red;
+			vertical-align:top;
+			border-style: solid;
 			display:inline-block;
 			text-align: center;
 			justify-content: center;
+			align-self: flex-start;
+			height: 600px;
 			width: 33%;
 			margin-top: 20px;
 			padding-bottom: 10px;
 			min-height: 400px;
-			background-color: 100000;
+			background-color: #100000;
 			color: #eeeeee;
 			font-size: 12px;
+			align-self: flex-start;
 		}
 		.bioText
 		{
-			border-bottom: 1px solid red;
+			border-bottom: solid;
 			text-align: center;
+			align-self: flex-start;
 			justify-content: center;
 			background-color: #000000;
 			color: #eeeeee;
@@ -35,6 +40,7 @@
 		}
 		.bioName
 		{
+			align-self: flex-start;
 			color: #eeeeee;
 			min-height: 30px;
 			font-size: 14px;
