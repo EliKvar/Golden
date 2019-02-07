@@ -19,7 +19,7 @@
 			
 			height: 500px;
 			max-width: 340px;
-			width: 31%;
+			width: 33%;
 			margin-top: 20px;
 			padding-bottom: 10px;
 			min-height: 400px;
@@ -48,6 +48,12 @@
 			border-bottom: 1px solid red;
 			text-align: center;
 			justify-content: center;
+		}
+		.team{
+			color: #eeeeee;
+			font-size: 24px;
+			text-align: center;
+
 		}
 		body 
 		{
