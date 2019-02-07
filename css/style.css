@@ -6,20 +6,18 @@
 			justify-content: center;
 			height: 500px;
 			align-items: center;
-			border-style: 1px solid red;
 			background-color: #100000;
+			border-bottom: 1px solid red;
 		}
 		.bio
 		{
-			vertical-align:top;
-			border-style: solid;
+			vertical-align:top;		
 			display:inline-block;
-			text-align: center;
-			justify-content: center;
-			
+			text-align: justify;
+			justify-content: center;			
 			height: 500px;
 			max-width: 340px;
-			width: 33%;
+			width: 31%;
 			margin-top: 20px;
 			padding-bottom: 10px;
 			min-height: 400px;
@@ -27,16 +25,22 @@
 			color: #eeeeee;
 			font-size: 12px;
 			
+			border-style: solid;
+			border-color: white;
+			border-width: 1px;
+			
 		}
 		.bioText
 		{
-			border-bottom: solid;
-			text-align: center;
+			margin-left:20px;
+			margin-right:20px;
+			text-align: justify;
 			justify-content: center;
 			background-color: #000000;
 			color: #eeeeee;
 			font-size: 12px;
 			min-height: 120px;
+			border-bottom: 1px solid red;
 		}
 		.bioName
 		{
@@ -44,43 +48,43 @@
 			color: #eeeeee;
 			min-height: 30px;
 			font-size: 14px;
-			background-color: #000000;
-			border-bottom: 1px solid red;
+			background-color: #000000;	
 			text-align: center;
 			justify-content: center;
-		}
-		.team{
-			color: #eeeeee;
-			font-size: 24px;
-			text-align: center;
-
+			border-bottom: 1px solid red;
 		}
 		body 
 		{
 			background-color: black;
 		}
-.tint {
-  position: relative;
-  float: left;
-  cursor: pointer;
-}
+        .team {
+            color: #eeeeee;
+            font-size: 24px;
+            text-align: center;
+        }
+        .tint {
+          position: relative;
+          float: left;
+          cursor: pointer;
+          border-bottom: 1px solid red;
+        }
 
-.tint:before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(212,175,55, 0.5);
-  -moz-transition: background .3s linear;
-  -webkit-transition: background .3s linear;
-  -o-transition: background .3s linear;
-  transition: background .3s linear;
-}
+        .tint:before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(212,175,55, 0.5);
+          -moz-transition: background .3s linear;
+          -webkit-transition: background .3s linear;
+          -o-transition: background .3s linear;
+          transition: background .3s linear;
+        }
 
-.tint:hover:before {
-  background: none;
-}
+        .tint:hover:before {
+          background: none;
+        }
 	</style>
