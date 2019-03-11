@@ -1,0 +1,38 @@
+	<style>
+
+	.carousel-item {
+	  height: 65vh;
+	  min-height: 350px;
+	  background: no-repeat center center scroll;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	}
+
+
+	.button {
+	  background-color: #D4AF37;
+	  border: none;
+	  color: white;
+	  padding: 55px 75px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+	  margin: 8px 4px;
+	  cursor: pointer;
+
+	}
+	.buttonhelp{
+		display: flex;
+		justify-content: center;
+
+	}
+
+
+
+
+
+
+</style>
