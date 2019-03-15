@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
-
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel = "stylesheet"
    type = "text/css"
@@ -9,16 +11,7 @@
 
 <head>
 <meta charset="utf-8">
-
-<title></title>
-
-
-
-
-
-
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" data-toggle="collapse">
   <div class="container">
     <a class="navbar-brand" href="#">Team Golden</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,12 +20,18 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home
+          <a class="nav-link" href= "HTMLGroupWebPage.html">Home
                 <span class="sr-only">(current)</span>
               </a>
         </li>
-
-
+        <li class="nav-item">
+          <a class="nav-link" href="EliPage.html">Eli</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="PaytonPage.html">Payton</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">App</a>
         </li>
       </ul>
     </div>
@@ -40,72 +39,78 @@
 </nav>
 
 <header>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#bs-carousel" data-slide-to="1"></li>
+      <li data-target="#bs-carousel" data-slide-to="2"></li>
     </ol>
-    <div class="carousel-inner" role="listbox">
-      <!-- Slide One - Set the background image for this slide in the line below -->
-      <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/RCAhiGJsUUE/1920x1080')">
-        <div class="carousel-caption d-none d-md-block">
-          <h3 class="display-4">First Slide</h3>
-          <p class="lead">This is a description for the first slide.</p>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item slides active">
+        <div class="slide-1"></div>
+        <div class="hero">
+          <hgroup>
+              <h1>HELLO</h1>
+              <h3>Thanks for checking out my Page!</h3>
+          </hgroup>
+
         </div>
       </div>
-      <!-- Slide Two - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1920x1080')">
-        <div class="carousel-caption d-none d-md-block">
-          <h3 class="display-4">Second Slide</h3>
-          <p class="lead">This is a description for the second slide.</p>
+      <div class="item slides">
+        <div class="slide-2"></div>
+        <div class="hero">
+          <hgroup>
+              <h1>Currently Enrolled at Boise State University</h1>
+              <h3>My major is Gaming, Interactive Media and Mobile Technology</h3>
+          </hgroup>
+
         </div>
       </div>
-      <!-- Slide Three - Set the background image for this slide in the line below -->
-      <div class="carousel-item" style="background-image: url('https://source.unsplash.com/O7fzqFEfLlo/1920x1080')">
-        <div class="carousel-caption d-none d-md-block">
-          <h3 class="display-4">Third Slide</h3>
-          <p class="lead">This is a description for the third slide.</p>
+      <div class="item slides">
+        <div class="slide-3"></div>
+        <div class="hero">
+          <hgroup>
+              <h1>Create, Inspire, Try Harder</h1>
+              <h3>Let's build some beautiful stuff</h3>
+          </hgroup>
+
         </div>
       </div>
     </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
   </div>
+ </header>
+
 </header>
 
-<!-- Page Content -->
-<section class="py-5">
-  <div class="container">
-    <h1 class="font-weight-light">Image Carousel Goes Right here</h1>
-    <p class="lead"> <a href=""></a>!</p>
-  </div>
-</section>
 
 
-
-<p class="buttonhelp">
-<button class="button">Past Projects</button>
-<button class="button">About</button>
-</p>
-
-
-</section>
-
-
+<div  style="border-style:solid; border-color:#CFB53B; border-width:10px;">
+<p style="float: left;"><img class="biopic" src="../Images/pic.png"  height="260" width="240" border="1px"></p>
+ <p class="bioWords" style="font-size:40px;">My name is Payton Grover. I love bright shiny things and lots and lots of glitter! I find that the best moments include family, friends, outdoors, and food. I aim to recreate these feelings through the design and development of apps, websites, and games. LIfe is a win, that’s all I know.</p>
+</div>
+<div style="clear:both"></div>
 
 </head>
+<center>
+<div  style="border-style:solid; border-color:#CFB53B; border-width:10px;">
+<p> This is a game we created to teach children the primary and secondary colors. We used Adobe Animate!</p>
+</div>
+<embed width="30%" height="20%" src="../Images/payton/colorClash.swf">
+</center>
+
+<div  style="border-style:solid; border-color:#CFB53B; border-width:10px;">
+<center><p> This animation was part of an AR app that told the story of how a light particle was created in a damn and eventually makes it's way into a nightlight for a little girl. We primarily used Adobe Animate!</p>
+</div>
+<embed width="100%" height="100%" src="../Images/payton/EndAnimationTurnIn.swf">
+</center>
 
 <body>
-
-
-
 	<!-- This came from the starter bootstrap template, does not include all functionality of jQuery
 		 so I added the full jQuery js code below-->
 <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->

@@ -1,5 +1,14 @@
 	<style>
-		.flerx 
+	.carousel-item {
+		height: 65vh;
+		min-height: 350px;
+		background: no-repeat center center scroll;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+		.flerx
 		{
 			display: flex;
 			flex-direction: row;
@@ -12,10 +21,10 @@
 		}
 		.bio
 		{
-			vertical-align:top;		
+			vertical-align:top;
 			display:inline-block;
 			text-align: justify;
-			justify-content: center;			
+			justify-content: center;
 			height: 500px;
 			max-width: 340px;
             min-width: 300px;
@@ -26,11 +35,11 @@
 			background-color: #100000;
 			color: #eeeeee;
 			font-size: 12px;
-			
+
 			border-style: solid;
 			border-color: white;
 			border-width: 1px;
-			
+
 		}
 		.bioText
 		{
@@ -50,12 +59,12 @@
 			color: #eeeeee;
 			min-height: 30px;
 			font-size: 14px;
-			background-color: #000000;	
+			background-color: #000000;
 			text-align: center;
 			justify-content: center;
 			border-bottom: 1px solid red;
 		}
-		body 
+		body
 		{
 			background-color: black;
 		}
