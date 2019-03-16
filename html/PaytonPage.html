@@ -1,9 +1,24 @@
 <!doctype html>
 <html lang="en">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	
+
+
+	
+ <!-- This stylesheet handles the navbar css formatting -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+<!-- This stylesheet handles the carousel css formatting. Putting this stylesheet link on top of the one above changes the format.
+	I think the problem is this stylesheet has a lot of navbar formatting in it which is overriding the nav bar formatting above.
+	I've tried downloading the library and manually deleting all the navbar references/tags so that it only handles the carousel formatting but
+	theres about 3000 lines of css code in there and nothing came of it anyways. 
+	I've pretty much tried everything I can think of and I think
+	the only way would be to try a different carousel template that doesn't use an external stylesheet/script. I haven't looked at carousel templates so idk if thats possible.
+	If anything turn this in this with the navbar links working, even though the carousel wont be.-->
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> 
+	
+	
+	
+	
 <link rel = "stylesheet"
    type = "text/css"
    href = "../css/Paytonstyle.css" />
@@ -13,7 +28,7 @@
 <meta charset="utf-8">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" data-toggle="collapse">
   <div class="container">
-    <a class="navbar-brand" href="#">Team Golden</a>
+    <a class="navbar-brand" href="HTMLGroupWebPage.html">Team Golden</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -86,12 +101,11 @@
   </div>
  </header>
 
-</header>
 
 
 
 <div  style="border-style:solid; border-color:#CFB53B; border-width:10px;">
-<p style="float: left;"><img class="biopic" src="../Images/pic.png"  height="260" width="240" border="1px"></p>
+<p style="float: left;"><img alt="piic" class="biopic" src="../Images/pic.png"  height="260" width="240" border="1px"></p>
  <p class="bioWords" style="font-size:40px;">My name is Payton Grover. I love bright shiny things and lots and lots of glitter! I find that the best moments include family, friends, outdoors, and food. I aim to recreate these feelings through the design and development of apps, websites, and games. LIfe is a win, that’s all I know.</p>
 </div>
 <div style="clear:both"></div>
@@ -104,35 +118,43 @@
 <embed width="30%" height="20%" src="../Images/payton/colorClash.swf">
 </center>
 
+<center>
 <div  style="border-style:solid; border-color:#CFB53B; border-width:10px;">
-<center><p> This animation was part of an AR app that told the story of how a light particle was created in a damn and eventually makes it's way into a nightlight for a little girl. We primarily used Adobe Animate!</p>
+<p> This animation was part of an AR app that told the story of how a light particle was created in a damn and eventually makes it's way into a nightlight for a little girl. We primarily used Adobe Animate!</p>
 </div>
 <embed width="100%" height="100%" src="../Images/payton/EndAnimationTurnIn.swf">
 </center>
 
 <body>
-	<!-- This came from the starter bootstrap template, does not include all functionality of jQuery
-		 so I added the full jQuery js code below-->
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		
 	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 	<!-- Popper JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
+	
+	
+	
+	
+	
+	
 	<!-- Latest compiled JavaScript -->
+
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-	<!-- Own JS File -->
 
+	
+		
+	<!-- If this script below is commented out and the script above isn't, the navbar links work.
+		 If this script is not commented out and the script above is, the carousel works. 
+		 I can't find a way to get them both work.  -->
+<!--
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>	
+-->
+	
+	
+	
 </body>
 
 
