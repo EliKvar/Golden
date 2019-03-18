@@ -75,7 +75,7 @@
 	    margin: 20px auto;
 	}
 
-	
+
 	/********************************/
 	/*          Media Queries       */
 	/********************************/
@@ -83,20 +83,23 @@
 	    .hero { width: 980px; }
 	}
 	@media screen and (max-width: 640px){
-	    .hero h1 { font-size: 4em; }
+	    .hero h1 { font-size: 2em; }
 	}
 .biopic{
 
   border-radius: 8px;
 	max-width: 100%;
-height: auto;
-
+	height: auto;
+	background: #000011;
 }
 
 .bioWords{
-	background color: #000011;
+	background: #000011;
 }
-
+body {
+    padding-top: 55px;
+		background: #000011;
+}
 
 
 
