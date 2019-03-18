@@ -4,10 +4,10 @@
 
 
 
- <!-- This stylesheet handles the navbar css formatting -->
+ <!--This stylesheet handles the navbar css formatting -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<!-- This stylesheet handles the carousel css formatting. Putting this stylesheet link on top of the one above changes the format.
+ <!--This stylesheet handles the carousel css formatting. Putting this stylesheet link on top of the one above changes the format.
 	I think the problem is this stylesheet has a lot of navbar formatting in it which is overriding the nav bar formatting above.
 	I've tried downloading the library and manually deleting all the navbar references/tags so that it only handles the carousel formatting but
 	theres about 3000 lines of css code in there and nothing came of it anyways.
@@ -22,21 +22,17 @@
 <link rel = "stylesheet"
    type = "text/css"
    href = "../css/Paytonstyle.css" />
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-   <!--Navigation bar-->
-   <div id="nav-placeholder">
-
+   <div class="topnav">
+     <a class="active" href="index.html">Home</a>
+     <a href="EliPage.html">Eli</a>
+     <a href="DanielPage.html">Daniel</a>
+     <a href="app.html">App</a>
    </div>
 
-   <script>
-   $(function(){
-     $("#nav-placeholder").load("nav.html");
-   });
-   </script>
-
 <header>
+
   <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
     <!-- Overlay -->
     <div class="overlay"></div>
