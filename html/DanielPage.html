@@ -2,161 +2,50 @@
 <html lang="en">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 <link rel = "stylesheet"
    type = "text/css"
-   href = "../css/Danielstyle.css" />
+   href = "../css/style.css" />
+<html>
+
+<script src="../js/matter.min.js"></script>
+
+<link rel = "stylesheet"
+   type = "text/css"
+   href = "../css/danielstyle.css" />
 
 
 <head>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" data-toggle="collapse">
-    <div class="container">
-      <a class="navbar-brand" href="HTMLGroupWebPage.html">Team Golden</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href= "HTMLGroupWebPage.html">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="EliPage.html">Eli</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="PaytonPage.html">Payton</a>
-          </li>
-  		    <li class="nav-item">
-            <a class="nav-link" href="DanielPage.html">Daniel</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="app.html">App</a>
-          </li>
-        </ul>
-      </div>
+<meta charset="utf-8">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" data-toggle="collapse">
+  <div class="container">
+    <a class="navbar-brand" href="#">Team Golden</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href= "index.html">Home
+                <span class="sr-only">(current)</span>
+              </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="EliPage.html">Eli</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="PaytonPage.html">Payton</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="DanielPage.html">Daniel</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="app.html">App</a>
+        </li>
+      </ul>
     </div>
-  </nav>
-
-
-
-window.onload = function () {
-
-// module aliases
-var Engine = Matter.Engine,
-    Render = Matter.Render,
-    World = Matter.World,
-		Body = Matter.Body,
-    Bodies = Matter.Bodies,
-		Events = Matter.Events,
-		Composite = Matter.Composite,
-		Composites = Matter.Composites,
-		Common = Matter.Common;
-var MatterGravity = {
-name: 'matter-gravity',
-
-version: '0.1.0',
-
-for: 'matter-js@^0.10.0',
-
-uses: [
-    'matter-attractors@^0.1.0'
-],
-install: function(base) {
-            base.Body.create = Common.chain(
-                Matter.Body.create,
-                MatterGravity.addAttractor
-            );
-        },
-
-        addAttractor: function(body) {
-            body = this || body;
-
-            if (body.gravity) {
-                body.attractors.push(MatterGravity.applyForce);
-            }
-        },
-
-        applyForce: function(bodyA, bodyB) {
-            var bToA =  Matter.Vector.sub(bodyB.position, bodyA.position),
-                distanceSq =  Matter.Vector.magnitudeSquared(bToA) || 0.0001,
-                normal =  Matter.Vector.normalise(bToA),
-                magnitude = -bodyA.gravity * (bodyA.mass * bodyB.mass / distanceSq),
-                force =  Matter.Vector.mult(normal, magnitude);
-
-            Body.applyForce(bodyA, bodyA.position,  Matter.Vector.neg(force));
-            Body.applyForce(bodyB, bodyB.position, force);
-        }
-			}
-// create an engine
-var engine = Engine.create();
-
-// create a renderer
-var render = Render.create({
-    element: document.body,
-    engine: engine,
-		options: {
-            width: window.innerWidth,
-            height: window.innerHeight,
-            showVelocity: true,
-            showAngleIndicator: true
-        }
-});
-render.options.wireframeBackground = 'transparent';
-render.options.background = 'transparent';
-var G = 0.001;
-var allbodies = [];
-for (var i = 0; i < 300; i += 1) {
-						var rad = Common.random(1, 10);
-            var body = Bodies.circle(
-                Common.random(10, window.innerWidth),
-                Common.random(10, window.innerWidth),
-                rad,
-                {
-                    mass: Math.pow(4.0/3.0*Math.PI*rad,3.0)*0.001,
-                    gravity: G,
-                    frictionAir: 0
-                }
-            );
-
-            Body.setVelocity(body, {
-                x: Common.random(-2, 2),
-                y: Common.random(-2, 2)
-            });
-						MatterGravity.addAttractor(body);
-						allbodies.push(body);
-            World.add(engine.world, body);
-        }
-engine.world.gravity.x=0;
-engine.world.gravity.y=0;
-
-Events.on(engine, 'beforeUpdate', function(event) {
-        var engine = event.source;
-				for( var x = 0; x < allbodies.length; x++)
-				{
-					if(allbodies[x].x>2000)
-						allbodies[x].x=2000;
-					if(allbodies[x].y>2000)
-						allbodies[x].y=2000;
-					if(allbodies[x].x<-2000)
-						allbodies[x].x=-2000;
-					if(allbodies[x].y<-2000)
-						allbodies[x].y=-2000;
-
-					for(var y = 0; y < allbodies.length; y++)
-						{
-							if(y!=x)
-								MatterGravity.applyForce(allbodies[x],allbodies[y]);
-						}
-				}
-    });
-// run the engine
-Engine.run(engine);
-
-// run the renderer
-Render.run(render);
-}
-</script>
+  </div>
+</nav>
 
 
 <!--end of Navigation bar-->
@@ -170,6 +59,128 @@ Render.run(render);
 
 
 <body>
+
+  <script>
+
+
+
+  window.onload = function () {
+
+  // module aliases
+  var Engine = Matter.Engine,
+      Render = Matter.Render,
+      World = Matter.World,
+  		Body = Matter.Body,
+      Bodies = Matter.Bodies,
+  		Events = Matter.Events,
+  		Composite = Matter.Composite,
+  		Composites = Matter.Composites,
+  		Common = Matter.Common;
+  var MatterGravity = {
+  name: 'matter-gravity',
+
+  version: '0.1.0',
+
+  for: 'matter-js@^0.10.0',
+
+  uses: [
+      'matter-attractors@^0.1.0'
+  ],
+  install: function(base) {
+              base.Body.create = Common.chain(
+                  Matter.Body.create,
+                  MatterGravity.addAttractor
+              );
+          },
+
+          addAttractor: function(body) {
+              body = this || body;
+
+              if (body.gravity) {
+                  body.attractors.push(MatterGravity.applyForce);
+              }
+          },
+
+          applyForce: function(bodyA, bodyB) {
+              var bToA =  Matter.Vector.sub(bodyB.position, bodyA.position),
+                  distanceSq =  Matter.Vector.magnitudeSquared(bToA) || 0.0001,
+                  normal =  Matter.Vector.normalise(bToA),
+                  magnitude = -bodyA.gravity * (bodyA.mass * bodyB.mass / distanceSq),
+                  force =  Matter.Vector.mult(normal, magnitude);
+
+              Body.applyForce(bodyA, bodyA.position,  Matter.Vector.neg(force));
+              Body.applyForce(bodyB, bodyB.position, force);
+          }
+  			}
+  // create an engine
+  var engine = Engine.create();
+
+  // create a renderer
+  var render = Render.create({
+      element: document.body,
+      engine: engine,
+  		options: {
+              width: window.innerWidth,
+              height: window.innerHeight,
+              showVelocity: true,
+              showAngleIndicator: true
+          }
+  });
+  render.options.wireframeBackground = 'transparent';
+  render.options.background = 'transparent';
+  var G = 0.001;
+  var allbodies = [];
+  for (var i = 0; i < 300; i += 1) {
+  						var rad = Common.random(1, 10);
+              var body = Bodies.circle(
+                  Common.random(10, window.innerWidth),
+                  Common.random(10, window.innerWidth),
+                  rad,
+                  {
+                      mass: Math.pow(4.0/3.0*Math.PI*rad,3.0)*0.001,
+                      gravity: G,
+                      frictionAir: 0
+                  }
+              );
+
+              Body.setVelocity(body, {
+                  x: Common.random(-2, 2),
+                  y: Common.random(-2, 2)
+              });
+  						MatterGravity.addAttractor(body);
+  						allbodies.push(body);
+              World.add(engine.world, body);
+          }
+  engine.world.gravity.x=0;
+  engine.world.gravity.y=0;
+
+  Events.on(engine, 'beforeUpdate', function(event) {
+          var engine = event.source;
+  				for( var x = 0; x < allbodies.length; x++)
+  				{
+  					if(allbodies[x].x>2000)
+  						allbodies[x].x=2000;
+  					if(allbodies[x].y>2000)
+  						allbodies[x].y=2000;
+  					if(allbodies[x].x<-2000)
+  						allbodies[x].x=-2000;
+  					if(allbodies[x].y<-2000)
+  						allbodies[x].y=-2000;
+
+  					for(var y = 0; y < allbodies.length; y++)
+  						{
+  							if(y!=x)
+  								MatterGravity.applyForce(allbodies[x],allbodies[y]);
+  						}
+  				}
+      });
+  // run the engine
+  Engine.run(engine);
+
+  // run the renderer
+  Render.run(render);
+  }
+  </script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
