@@ -26,28 +26,25 @@
 
       <a-scene embedded arjs=’sourceType: webcam;’>
           <a-marker preset=’hiro’>
-            <a-entity
+
+            <a-text value="ABC" ></a-text>
+
+            <a-entity scale ="2 2 2"
+
+              obj-model="obj: {{asset('/objects/artillerycannon.obj')}};
+              mtl: {{asset('/objects/artillerycannon.mtl')}}">
+
+            <!--
+            collada-model=”url(../objects/artillerycannon.dae)”>
             obj-model=”obj: url(/objects/artillerycannon.obj);
-            mtl: url(/objects/artillerycannon.mtl)”>
+            mtl: url(/objects/artillerycannon.mtl)”> -->
             </a-entity>
           </a-marker>
       <a-entity camera>
       </a-entity>
       </a-scene>
 
-    <!-- Page Heading/Breadcrumbs -->
-    <div class="container">
 
-  </div>
-  <!-- /.container -->
-
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
-    </div>
-    <!-- /.container -->
-  </footer>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
