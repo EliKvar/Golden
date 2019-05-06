@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+
+<title> Artillery Game</title>
+
+  <base href="/" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase.js"></script>
+
+
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
+
+
+   <table id ="orders" style ="width:50%">
+     <tr>
+       <th>Altitude</th>
+       <th>Latitude</th>
+       <th>Longitude</th>
+       <th>Header</th>
+       <th>Sender ID</th>
+
+
+     </tr>
+
+   </table>
+ </body>
+</html>
+<style>
+body {
+
+ margin: 2em;
+}
+
+h1 {
+ font-style: italic;
+ color: #373fff;
+}
+
+#orders{
+border:2px solid black;
+}
+th{
+border: 1px solid black;
+ border-le
+}
+</style>
+
+
+   <script>
+   var firebaseConfig = {
+     apiKey: "AIzaSyB0RWPQK3jmLxMRy7DiBBT29hoRjVNfnpw",
+     authDomain: "arty-57de8.firebaseapp.com",
+     databaseURL: 'https://arty-57de8.firebaseio.com/',
+     projectId: "arty-57de8",
+     storageBucket: "arty-57de8.appspot.com"
+   };
+
+   firebase.initializeApp(firebaseConfig);
+
+
+     console.log("hello1");
+    // var database = firebase.database();
+     firebase.database().ref().child('players').on("value", function(snapshot) {
+
+     //database.ref()"value", function(snapshot){
+       console.log("hello2");
+       if(snapshot.exists()){
+         var player = snapshot.val();
+         var content = '';
+         snapshot.forEach(function(data){
+           var val = data.val();
+           content +='<tr>';
+           content += '<td>' + player.altitude.toFixed(3) + '</td>';
+           content += '<td>' + player.lat.toFixed(3) + '</td>';
+           content += '<td>' + player.lng.toFixed(3) + '</td>';
+           content += '<td>' + player.heading.toFixed(3) + '</td>';
+           content += '<td>' + player.sender + '</td>';
+
+           content += '</tr>';
+           console.log();
+
+         });
+         $('#orders').append(content);
+     }
+ });
+
+
+
+/*
+  var start = false;
+  var gunHeading = 0;
+  var gunElevation = 0;
+  var gunPower = 0;
+  var senderUID = null;
+  var globalUID = 1;
+  var playerInstances = null;
+  var globalLatOffset=0;
+  var globalLonOffset=0;
+  var lastFrame = null;
+
+  var playerStructure = {
+          sender: null,
+          timestamp: null,
+          lat: null,
+          lng: null,
+  		altitude: null,
+  		heading: null
+        };
+
+  var bulletStructure = {
+          sender: null,
+          timestamp: null,
+          lat: null,
+          lng: null,
+  		alt: null,
+  		heading: null,
+  		angle: null,
+  		velocity: null
+        };
+
+  var playerInstanceStructure = {
+          lat: null,
+          lng: null,
+  		altitude: null,
+  		heading: null,
+  		threejsObject: null,
+  		entity: null
+        };
+  var firebaseConfig = {
+    apiKey: "AIzaSyB0RWPQK3jmLxMRy7DiBBT29hoRjVNfnpw",
+    authDomain: "arty-57de8.firebaseapp.com",
+    databaseURL: 'https://arty-57de8.firebaseio.com/',
+    projectId: "arty-57de8",
+    storageBucket: "arty-57de8.appspot.com"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+
+
+        function initAuthentication(onAuthSuccess) {
+          firebase.auth().signInAnonymously().catch(function(error) {
+            if (error) {
+              console.log('Login Failed!', error);
+            }
+          });  // Users will get a new id for every session.
+        }
+
+  	firebase.auth().onAuthStateChanged(function(user) {
+  	if (user) {
+  		// User is signed in.
+  		var isAnonymous = user.isAnonymous;
+  		senderUID = user.uid;
+  		initFirebase();
+  	}});
+
+  	function initFirebase() {
+  	var players = firebase.database().ref().child('players');
+
+  		var startTime = new Date().getTime() - (60 * 10 * 1000);
+  	  players.orderByChild('timestamp').startAt(startTime).on('child_added',
+            function(snapshot) {
+
+              // Get that click from firebase.
+              var newPosition = snapshot.val();
+              var elapsed = new Date().getTime() - newPosition.timestamp;
+
+              // Requests entries older than expiry time (10 minutes).
+              var expirySeconds = Math.max(60 * 10 * 1000 - elapsed, 0);
+              // Set client timeout to remove the point after a certain time.
+              window.setTimeout(function() {
+                // Delete the old point from the database.
+                snapshot.ref().remove();
+              }, expirySeconds);
+            }
+          );
+
+  		firebase.database().ref().child('players').on("value", function(snapshot) {
+  					var playerstruct = snapshot.val();
+  					if(playerstruct.lng==0||playerstruct.lat==0)
+
+  						return;
+  					 playerIStruct = Object.assign({}, playerInstanceStructure);
+  					//playerIStruct.lat = parseFloat(playerstruct.lat)-globalLatOffset;
+  					//playerIStruct.lng = parseFloat(playerstruct.lng)-globalLonOffset;
+  					playerIStruct.lat = parseFloat(playerstruct.lat);
+  					playerIStruct.lng = parseFloat(playerstruct.lng);
+  					playerIStruct.altitude = parseFloat(playerstruct.altitude);
+  					playerIStruct.heading = parseFloat(playerstruct.heading);
+  					//console.log("126 "+playerstruct.lat + " " + playerIStruct.lat + " " + globalLatOffset);
+  					//console.log("127 "+playerstruct.lng + " " + playerIStruct.lng + " " + globalLonOffset);
+  					console.log(playerstruct);
+
+
+
+
+  				}, function (errorObject) {
+  					console.log("The read failed: " + errorObject.code);
+  			});
+  	  }
+
+  initAuthentication(initFirebase.bind(undefined));
+*/
+  </script>
+</body>
+
+</html>
